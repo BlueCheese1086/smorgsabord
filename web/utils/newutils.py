@@ -18,14 +18,11 @@ def fix_cols(data):
     
 def new_cols(data):
     def taxiYesNo(word):
-        #print(word)
         if word.taxiWord == "Yes":
             return 1
         else:
             return 0
-    # print(data)
     data["taxi"] = data.apply((lambda row: taxiYesNo(row)), axis=1)
-    # print(data)
     data["taxi"] = data.apply((lambda row: taxiYesNo(row)), axis=1)
     data["autoAcc"] = ((data["autoHighIn"] + data["autoLowIn"]) / (data["autoHighIn"] + data["autoHighOut"] + data["autoLowIn"] + data["autoLowOut"]))
     data["teleAcc"] = ((data["teleHighIn"] + data["teleLowIn"]) / (data["teleHighIn"] + data["teleHighOut"] + data["teleLowIn"] + data["teleLowOut"]))

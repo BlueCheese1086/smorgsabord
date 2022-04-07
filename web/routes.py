@@ -4,13 +4,6 @@ from flask import render_template, request
 from web import app
 from web.utils import plotly_plot, newutils
 from data.allteams import teamnames
-
-# print("\n"*3)
-# datapath = input("Where is the data stored? Provide the absolute path: Or, if it is in data/raw.csv, just click enter ")
-# print("\n"*3)
-
-# if len(datapath) == 0:
-#     datapath = "data/raw.csv"
     
 data = newutils.load_data("data/raw.csv")
 data = newutils.fix_cols(data)
