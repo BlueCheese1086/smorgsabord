@@ -2,21 +2,31 @@ import warnings
 import pandas as pd
 warnings.simplefilter(action='ignore', category=FutureWarning)
 from data.allteams import teamnames
-from configCols import columns
+from web.utils.configCols import columns
 
 def load_data(path="data/raw.csv"):
-    alldata = pd.read_csv(path)
-    alldata = alldata.sort_values(["matchNum", "teamNum"], ascending=[True, True])
-    alldata = alldata.drop("name", 1).drop("notes", 1)
+    alldata = pd.read_csv(path,index_col=False)
     
     return alldata
 
 def fix_cols(data):
-    data = data.rename(columns=columns)
-    return data
+    alldata = data.rename(columns=columns)
+    alldata = alldata.sort_values(["matchNum", "teamNum"], ascending=[True, True])
+    alldata = alldata.drop("person", 1).drop("notes", 1).drop("with1086", 1)
+    return alldata
 
     
 def new_cols(data):
+    def taxiYesNo(word):
+        #print(word)
+        if word.taxiWord == "Yes":
+            return 1
+        else:
+            return 0
+    # print(data)
+    data["taxi"] = data.apply((lambda row: taxiYesNo(row)), axis=1)
+    # print(data)
+    data["taxi"] = data.apply((lambda row: taxiYesNo(row)), axis=1)
     data["autoAcc"] = ((data["autoHighIn"] + data["autoLowIn"]) / (data["autoHighIn"] + data["autoHighOut"] + data["autoLowIn"] + data["autoLowOut"]))
     data["teleAcc"] = ((data["teleHighIn"] + data["teleLowIn"]) / (data["teleHighIn"] + data["teleHighOut"] + data["teleLowIn"] + data["teleLowOut"]))
     data["autoPoints"] = (data["autoHighIn"]*4 + data["autoLowIn"]*2)
@@ -26,4 +36,5 @@ def new_cols(data):
     data["highPoints"] = (data["autoHighIn"] + data["teleHighIn"])
     data["lowPoints"] = (data["autoLowIn"] + data["teleLowIn"])
     data["level"] = data.apply(lambda row: round(row.highPoints/(row.highPoints+row.lowPoints)), axis=1)
+    data["climb"] = data.apply(lambda row: [int(s) for s in list(row.climbWord) if s.isdigit()][0], axis=1)
     return data

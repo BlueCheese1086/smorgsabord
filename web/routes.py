@@ -5,14 +5,14 @@ from web import app
 from web.utils import plotly_plot, newutils
 from data.allteams import teamnames
 
-print("\n*3")
-datapath = input("Where is the data stored? Provide the absolute path: Or, if it is in data/raw.csv, just click enter ")
-print("\n*3")
+# print("\n"*3)
+# datapath = input("Where is the data stored? Provide the absolute path: Or, if it is in data/raw.csv, just click enter ")
+# print("\n"*3)
 
-if len(datapath=0):
-    datapath = "data/raw.csv"
+# if len(datapath) == 0:
+#     datapath = "data/raw.csv"
     
-data = newutils.load_data(datapath)
+data = newutils.load_data("data/raw.csv")
 data = newutils.fix_cols(data)
 data = newutils.new_cols(data)
 
@@ -49,15 +49,16 @@ def plot_team():
         level = "Low shooter"
     else:
         level = "Shoots high and low"
-    
     auto_avg = round(teamdata["autoPoints"].mean(), 2)
     teleop_avg = round(teamdata["telePoints"].mean(), 2)
     climb_avg = round(teamdata["climb"].mean(), 2)
     auto_acc = str(round(teamdata["autoAcc"].mean(), 2)) + "%"
     tele_acc = str(round(teamdata["teleAcc"].mean(), 2)) + "%"
     defense = round(teamdata["defense"].mean(), 2)
+    taxipc = round(teamdata["taxi"].mean(),2)
     teamgraph = plotly_plot.teamplot(teamdata)
+    infostr = level + ", " + str(taxipc*100) + "% taxi rate"
     
-    context = {"teamSt": teamSt, "level": level, "auto_avg": auto_avg, "teleop_avg": teleop_avg, "climb_avg": climb_avg, "auto_acc": auto_acc, "tele_acc": tele_acc, "defense": defense, "teamgraph": teamgraph, "team_list": list(allteams.values())}
+    context = {"teamSt": teamSt, "level": infostr, "auto_avg": auto_avg, "teleop_avg": teleop_avg, "climb_avg": climb_avg, "auto_acc": auto_acc, "tele_acc": tele_acc, "defense": defense, "teamgraph": teamgraph, "team_list": list(allteams.values())}
     
     return render_template('team.html', context=context)
