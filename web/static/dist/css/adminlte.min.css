@@ -991,6 +991,10 @@ html {
 .main-footer {
   color: #869099;
   padding: 1rem;
+  position:relative;
+  margin-top:-56px;
+  height:30px;
+  clear:both;
 }
 
 .main-footer.text-sm,
