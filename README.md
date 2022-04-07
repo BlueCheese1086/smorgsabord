@@ -21,3 +21,4 @@ A simple FRC scouting app for use with CSVs, built in Flask using the AdminLTE H
 - Exit the data/ directory to the main directory
 - Enter `flask run`
 - Open the provided web address (http://127.0.0.1:5000) in a web browser
+- Mac may require you to zoom out
