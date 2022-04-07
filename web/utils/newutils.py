@@ -2,6 +2,7 @@ import warnings
 import pandas as pd
 warnings.simplefilter(action='ignore', category=FutureWarning)
 from data.allteams import teamnames
+from configCols import columns
 
 def load_data(path="data/raw.csv"):
     alldata = pd.read_csv(path)
@@ -10,6 +11,11 @@ def load_data(path="data/raw.csv"):
     
     return alldata
 
+def fix_cols(data):
+    data = data.rename(columns=columns)
+    return data
+
+    
 def new_cols(data):
     data["autoAcc"] = ((data["autoHighIn"] + data["autoLowIn"]) / (data["autoHighIn"] + data["autoHighOut"] + data["autoLowIn"] + data["autoLowOut"]))
     data["teleAcc"] = ((data["teleHighIn"] + data["teleLowIn"]) / (data["teleHighIn"] + data["teleHighOut"] + data["teleLowIn"] + data["teleLowOut"]))

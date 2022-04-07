@@ -5,8 +5,17 @@ from web import app
 from web.utils import plotly_plot, newutils
 from data.allteams import teamnames
 
-data = newutils.load_data("data/raw.csv")
+print("\n*3")
+datapath = input("Where is the data stored? Provide the absolute path: Or, if it is in data/raw.csv, just click enter ")
+print("\n*3")
+
+if len(datapath=0):
+    datapath = "data/raw.csv"
+    
+data = newutils.load_data(datapath)
+data = newutils.fix_cols(data)
 data = newutils.new_cols(data)
+
 allteams = {}
 for num in list(data["teamNum"]):
     allteams[int(num)] = teamnames[num]
