@@ -24,6 +24,7 @@ Won't work on HCPS computers
 - Enter `pip install -r requirements.txt` This may take a while.
 
 ## Usage
+- Configure the column names in web/config_cols.py
 - Go to the data/ directory and put in your csv file with all the data. Name it raw.csv
 - Exit the data/ directory to the main directory
 - Enter `flask run`
