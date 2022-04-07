@@ -40,6 +40,8 @@ def allperf(final_df):
         showgrid=True,  
     )
     )
+    fig.update_traces(marker_sizemin = 5)
+
     fig.update_xaxes(showspikes=True, spikecolor="#777", spikesnap="cursor", spikemode="across", spikedash="dot")
     fig.update_yaxes(showspikes=True, spikecolor="#777", spikedash="dot")
     plot_json = json.dumps(fig, cls=plotly.utils.PlotlyJSONEncoder)
