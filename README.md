@@ -25,8 +25,7 @@ Won't work on HCPS computers
 
 ## Usage
 - Configure the column names in web/config_cols.py
-- Go to the data/ directory and put in your csv file with all the data. Name it raw.csv
-- Exit the data/ directory to the main directory
+- Edit the datapath variable in routes.py to where the csv with the data is stored
 - Enter `flask run`
 - Open the provided web address (http://127.0.0.1:5000) in a web browser
 - May need to zoom out or in
