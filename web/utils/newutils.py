@@ -32,6 +32,12 @@ def new_cols(data):
     data["teamName"] = data.apply(lambda row: teamnames[int(row.teamNum)], axis=1)
     data["highPoints"] = (data["autoHighIn"] + data["teleHighIn"])
     data["lowPoints"] = (data["autoLowIn"] + data["teleLowIn"])
-    data["level"] = data.apply(lambda row: round(row.highPoints/(row.highPoints+row.lowPoints)), axis=1)
+   
+    def levelHandler(row):
+        try:
+            return round(row.highPoints/(row.highPoints+row.lowPoints))
+        except ZeroDivisionError:
+            return 0
+    data["level"] = data.apply((lambda row: levelHandler(row)), axis=1)
     data["climb"] = data.apply(lambda row: [int(s) for s in list(row.climbWord) if s.isdigit()][0], axis=1)
     return data

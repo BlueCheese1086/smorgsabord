@@ -5,7 +5,7 @@ from web import app
 from web.utils import plotly_plot, newutils
 from data.allteams import teamnames
     
-data = newutils.load_data("data/raw.csv")
+data = newutils.load_data("data/final.csv")
 data = newutils.fix_cols(data)
 data = newutils.new_cols(data)
 
@@ -21,11 +21,12 @@ def main_page():
     auto_accuracy = str(round(data["autoAcc"].mean(), 2)*100) + "%"
     teleop_accuracy = str(round(data["teleAcc"].mean(), 2)*100) + "%"
     matches = data["matchNum"].max()
+    # print(data["matchNum"])
     teleop_avg_bars = plotly_plot.allperf(data)
     context = {"auto_average": auto_average,
                "teleop_average": teleop_average, "climb_average": climb_average,
             'auto_accuracy': auto_accuracy,
-            'teleop_accuracy': teleop_accuracy,'matches': matches, 'teleop_avg': teleop_avg_bars, "team_list": list(allteams.values())}
+            'teleop_accuracy': teleop_accuracy,'matches': matches, 'teleop_avg': teleop_avg_bars, "team_list": sorted(list(allteams.values()))}
     return render_template('plotly.html', context=context)
 
 
@@ -45,13 +46,13 @@ def plot_team():
     auto_avg = round(teamdata["autoPoints"].mean(), 2)
     teleop_avg = round(teamdata["telePoints"].mean(), 2)
     climb_avg = round(teamdata["climb"].mean(), 2)
-    auto_acc = str(round(teamdata["autoAcc"].mean(), 2)) + "%"
-    tele_acc = str(round(teamdata["teleAcc"].mean(), 2)) + "%"
+    auto_acc = str(round(teamdata["autoAcc"].mean(), 2)*100) + "%"
+    tele_acc = str(round(teamdata["teleAcc"].mean(), 2)*100) + "%"
     defense = round(teamdata["defense"].mean(), 2)
     taxipc = round(teamdata["taxi"].mean(),2)
     teamgraph = plotly_plot.teamplot(teamdata)
     infostr = level + ", " + str(taxipc*100) + "% taxi rate"
     
-    context = {"teamSt": teamSt, "level": infostr, "auto_avg": auto_avg, "teleop_avg": teleop_avg, "climb_avg": climb_avg, "auto_acc": auto_acc, "tele_acc": tele_acc, "defense": defense, "teamgraph": teamgraph, "team_list": list(allteams.values())}
+    context = {"teamSt": teamSt, "level": infostr, "auto_avg": auto_avg, "teleop_avg": teleop_avg, "climb_avg": climb_avg, "auto_acc": auto_acc, "tele_acc": tele_acc, "defense": defense, "teamgraph": teamgraph, "team_list": sorted(list(allteams.values()))}
     
     return render_template('team.html', context=context)
