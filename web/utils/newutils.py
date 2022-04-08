@@ -37,7 +37,7 @@ def combineCsvs(path):
     return flattened
 
 def load_data(path="data/fina.csv"):
-    print(os.getcwd())
+    # print(os.getcwd())
     alldata = pd.read_csv(path,index_col=False)
     
     return alldata
