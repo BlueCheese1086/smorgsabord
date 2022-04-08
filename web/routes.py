@@ -5,6 +5,7 @@ from web import app
 from web.utils import plotly_plot, newutils
 from data.allteams import teamnames
     
+newutils.combineCsvs("data/")
 data = newutils.load_data("data/final.csv")
 data = newutils.fix_cols(data)
 data = newutils.new_cols(data)
