@@ -1,5 +1,5 @@
 # smorgsabord
-A simple 2022 FRC data visualization app for use with CSVs, built in Flask using the AdminLTE HTML/JS/CSS template
+A simple 2022 FRC data visualization app for use with CSVs, built in Flask using the AdminLTE HTML/JS/CSS template. Currently hosted at http://dcmp1086.herokuapp.com/
 
 ## Installation
 ### On Mac (tested)
