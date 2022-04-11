@@ -1,5 +1,5 @@
 # smorgsabord
-A simple FRC scouting app for use with CSVs, built in Flask using the AdminLTE HTML/JS/CSS template
+A simple 2022 FRC data visualization app for use with CSVs, built in Flask using the AdminLTE HTML/JS/CSS template
 
 ## Installation
 ### On Mac (tested)
