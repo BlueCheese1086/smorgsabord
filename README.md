@@ -15,8 +15,8 @@ A simple 2022 FRC data visualization app for use with CSVs, built in Flask using
 - Download the repo
 - Navigate inside the folder in the terminal
 - Type `pip install -r requirements.txt`
-### On Windows (NOT tested)
-DOES WORK on HCPS computers 
+### On Windows (tested)
+DOES WORK on HCPS computers, use PowerShell
 - Download the repository (using git clone or just click on the green code button and Download as zip)
 - Unzip the zip file
 - Open the Terminal and navigate to the new directory using cd
