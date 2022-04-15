@@ -1,5 +1,5 @@
 # smorgsabord
-A simple 2022 FRC data visualization app for use with CSVs, built in Flask using the AdminLTE HTML/JS/CSS template. Currently hosted at http://dcmp1086.herokuapp.com/
+A simple 2022 FRC data visualization app for use with CSVs from our scouting ap, built in Flask using the AdminLTE template. Currently hosted at http://dcmp1086.herokuapp.com/
 
 ## Installation
 ### On Mac (tested)
@@ -26,6 +26,6 @@ DOES WORK on HCPS computers, use PowerShell
 ## Usage
 - Configure the column names in web/config_cols.py
 - Edit the datapath variable in routes.py to where the csv with the data is stored
-- Enter `flask run`
+- Enter `flask run` or `python run.py` if flask is not found
 - Open the provided web address (http://127.0.0.1:5000) in a web browser
 - May need to zoom out or in
