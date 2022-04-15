@@ -1,4 +1,4 @@
-# smorgsabord
+# smorgasbord
 A simple 2022 FRC data visualization app for use with CSVs from our scouting app, built in Flask using the AdminLTE template and Plotly. Made to be usable online as well as offline due to restrictions at the competition venue. Currently hosted at http://dcmp1086.herokuapp.com/
 
 ## Installation
@@ -6,8 +6,8 @@ A simple 2022 FRC data visualization app for use with CSVs from our scouting app
 - Download the repository (using git clone or just click on the green code button and Download as zip)
 - Unzip the zip file
 - Open the Terminal and navigate to the new directory using cd
-- Enter `python3 -m venv smorgsabord`
-- Enter `source smorgsabord/bin/activate`
+- Enter `python3 -m venv smorgasbord`
+- Enter `source smorgasbord/bin/activate`
 - Enter `pip3 install -r requirements.txt` This may take a while.
 - This may cause a window to pop up asking if you want to install Developer Tools. Click Accept
 - Wait for the packages to install
