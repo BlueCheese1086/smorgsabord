@@ -1,5 +1,5 @@
 # smorgsabord
-A simple 2022 FRC data visualization app for use with CSVs from our scouting app, built in Flask using the AdminLTE template and Plotly. Currently hosted at http://dcmp1086.herokuapp.com/
+A simple 2022 FRC data visualization app for use with CSVs from our scouting app, built in Flask using the AdminLTE template and Plotly. Made to be usable online as well as offline due to restrictions at the competition venue. Currently hosted at http://dcmp1086.herokuapp.com/
 
 ## Installation
 ### On Mac (tested)
