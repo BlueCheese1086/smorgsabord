@@ -29,3 +29,10 @@ DOES WORK on HCPS computers, use PowerShell
 - Enter `flask run` or `python run.py` if flask is not found
 - Open the provided web address (http://127.0.0.1:5000) in a web browser
 - May need to zoom out or in
+
+## Future ideas
+- Clean up code
+- Make more easily configurable
+- Package on pip?
+- Make graphs editable by date data was collected (day 1 only, day 2-3, etc) using slider
+- Add match projections and ranking projections tab based on rankings.py, allow match wins and losses to be toggled to see how end rankings are affected
