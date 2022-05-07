@@ -37,3 +37,7 @@ DOES WORK on HCPS computers, use PowerShell
 - Make graphs editable by date data was collected (day 1 only, day 2-3, etc) using slider
 - Add match projections and ranking projections tab based on rankings.py, allow match wins and losses to be toggled to see how end rankings are affected
 - Take inspiration from Orbit 1690 - https://github.com/Team1690/Scouting-Frontend, https://orbit-scouting-app-viewer.web.app/#/
+- - Mobile friendly - flask-mobility? scouting form on page itself, piped to database?
+- - Pick list
+- - More charts for each team
+- - Pit scouting
